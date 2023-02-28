@@ -44,14 +44,12 @@
         <%= book_comment.comment %>
         <br><%= book_comment.user.name %>
         <%#= book_comment.created_at.strftime('%Y/%m/%d') %>
-        <% end %>
         <%# if book_comment.user == current_user %>
+        <% if book_comment.user == current_user %>
         <%#= link_to "削除", book_book_comment_path(book_comment.book book_comment), method: :delete %>
-        <%# end %>
+        <%= link_to "削除", book_book_comment_path(book_comment), method: :delete %>
+        <% end %>
+        <% end %>
        </div>
   </div>
 </div>
-
-
-<%#= link_to book_favorites_path(@Book), method: :delete do %>♥
-<%#= link_to book_favorites_path(@Book), method: :post do %>♡

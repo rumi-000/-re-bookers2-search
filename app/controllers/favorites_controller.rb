@@ -1,18 +1,13 @@
 class FavoritesController < ApplicationController
 
-  #def create
-    #いいねされた本(一冊)
-    #いいね = ログイン中のユーザのいいね(いいねされた本:本のユーザ)
-    #いいねを保存
-    #redirect_to post_image_path(post_image)
-  #end
-
   def create
    book = Book.find(params[:book_id])
    favorite = current_user.favorites.new(book_id:book.id)
    favorite.save
-   redirect_to books_path(book)
+   redirect_back(fallback_location: root_path)
   end
+  
+  
   
 # 例
 #def destroy
@@ -23,10 +18,10 @@ class FavoritesController < ApplicationController
   #end
 
   def destroy
-   book = Book.find(params[:book_id])
-   favorite = current_user.favorites.find_by(book_id:book.id)
-   favorite.destroy
-  redirect_to books_path(book)
+  book = Book.find(params[:book_id])
+  favorite = current_user.favorites.find_by(book_id:book.id)
+  favorite.destroy
+  redirect_back(fallback_location: root_path)
   end
   
 end
