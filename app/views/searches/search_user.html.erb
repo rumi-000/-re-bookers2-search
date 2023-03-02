@@ -1,0 +1,13 @@
+<h2>User search </h2>
+
+<table class="table table-hover table-inverse">
+  <% @range == "User" %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag(user.get_profile_image(10,10)) %></td>
+          <td><%= user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

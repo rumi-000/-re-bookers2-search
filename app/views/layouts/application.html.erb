@@ -8,8 +8,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
     <%= render 'layouts/header' %>
+    
+    <main class="mb-auto">
+ 　　 <% if user_signed_in? %>
+    <%= render 'searches/search' %>
+  <% end %>
+  
+　　</main>
     <main class="mb-auto">
       
     <p class="notice"><%= notice %></p>
@@ -20,11 +28,3 @@
     <%= render 'layouts/footer' %>
   </body>
 </html>
-
-
-
-
-    
-  <!--<main>-->
-  <!--<p id="notice"><%= notice %></p>-->
-  <!--</main>-->

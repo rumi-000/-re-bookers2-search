@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   
   get "/home/about"=>"homes#about"
+  
   resources :users, only: [:index,:show,:edit,:update]do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
@@ -22,9 +23,6 @@ Rails.application.routes.draw do
 
   end
 
-
-  # idを特定しなくても良い時にresourceを使用する。
-  #book(親)　コメントといいね（子）
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+get "search" => "searches#search"
 
 end
